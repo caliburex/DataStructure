@@ -185,7 +185,7 @@ public class Array<E> {
     }
 
     public Array findAll(E e) {
-        Array array = new Array(data.length);
+        Array<Integer> array = new Array<Integer>(data.length);
 
         for (int i = 0; i < size; i += 1) {
             if (data[i].equals(e)) {
@@ -298,6 +298,10 @@ public class Array<E> {
         }
 
         size = newSize;
+
+        if (size == data.length / 4 && data.length / 2 != 0) {
+            resize(data.length / 2);
+        }
     }
 
     public void removeAll() {
